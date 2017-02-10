@@ -1,0 +1,6 @@
+/home/dersanli/code/ProjectEuler/Problem013/obj/x86/Debug/.NETFramework,Version=v4.5.AssemblyAttribute.cs
+/home/dersanli/code/ProjectEuler/Problem013/bin/Debug/Problem013.txt
+/home/dersanli/code/ProjectEuler/Problem013/bin/Debug/Problem013.exe.mdb
+/home/dersanli/code/ProjectEuler/Problem013/bin/Debug/Problem013.exe
+/home/dersanli/code/ProjectEuler/Problem013/obj/x86/Debug/Problem013.exe
+/home/dersanli/code/ProjectEuler/Problem013/obj/x86/Debug/Problem013.exe.mdb
