@@ -1,6 +1,11 @@
-﻿<Properties StartupItem="Problem017/Problem017.csproj">
+﻿<Properties StartupItem="Problem018/Problem018.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
-  <MonoDevelop.Ide.Workbench />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Problem018/Problem018.txt">
+    <Files>
+      <File FileName="Problem018/Program.cs" Line="25" Column="17" />
+      <File FileName="Problem018/Problem018.txt" Line="15" Column="24" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>

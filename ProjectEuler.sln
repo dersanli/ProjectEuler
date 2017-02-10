@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Problem016", "Problem016\Pr
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Problem017", "Problem017\Problem017.csproj", "{75A29549-E222-4F0B-A4AE-5BDE1B90B29F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Problem018", "Problem018\Problem018.csproj", "{B3E67FD6-D7C3-45D6-9BBF-41125BF49743}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x86 = Debug|x86
@@ -41,6 +43,10 @@ Global
 		{8581DCB4-318A-41B4-94A8-5E3271766518}.Debug|x86.Build.0 = Debug|x86
 		{8581DCB4-318A-41B4-94A8-5E3271766518}.Release|x86.ActiveCfg = Release|x86
 		{8581DCB4-318A-41B4-94A8-5E3271766518}.Release|x86.Build.0 = Release|x86
+		{B3E67FD6-D7C3-45D6-9BBF-41125BF49743}.Debug|x86.ActiveCfg = Debug|x86
+		{B3E67FD6-D7C3-45D6-9BBF-41125BF49743}.Debug|x86.Build.0 = Debug|x86
+		{B3E67FD6-D7C3-45D6-9BBF-41125BF49743}.Release|x86.ActiveCfg = Release|x86
+		{B3E67FD6-D7C3-45D6-9BBF-41125BF49743}.Release|x86.Build.0 = Release|x86
 		{D7757066-A0FF-4D5B-8791-A8CE570B8118}.Debug|x86.ActiveCfg = Debug|x86
 		{D7757066-A0FF-4D5B-8791-A8CE570B8118}.Debug|x86.Build.0 = Debug|x86
 		{D7757066-A0FF-4D5B-8791-A8CE570B8118}.Release|x86.ActiveCfg = Release|x86
