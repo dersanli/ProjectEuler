@@ -1,74 +1,75 @@
 ﻿using System;
 using System.IO;
+using System.Collections.Generic;
 
 namespace Problem018
 {
 	class MainClass
 	{
-		static int[][] Triangle = new int[15][];
-		static int Sum = 0;
+        static List<int[]> Triangle = new List<int[]>();
 		
 		public static void Main (string[] args)
-		{
-			DateTime Start = DateTime.Now;
+        {
+            DateTime Start = DateTime.Now;
 
-			ReadProblem ();
-			Iterate (75, 0, 0);
+            ReadProblem ();
 
-			Console.WriteLine ("Sum: {0}", Sum);
-			Console.WriteLine ("Elapsed: {0}", DateTime.Now - Start);
-		}
+            Iterate (Triangle.Count - 1);
+            //PrintMaximums();
 
-		static void Iterate(int Value, int LineNum, int Index )
-		{
-			Console.WriteLine ("Value: {0}", Value);
-			Sum += Value;
-			if (LineNum >= Triangle.GetLength (0) - 1)
-				return;
+            Console.WriteLine ("Sum: {0}",Triangle[0][0]);
+            Console.WriteLine ("\nElapsed: {0}", DateTime.Now - Start);
+        }
 
-			int Alternative1 = 0, Alternative2 = 0;
+        static void Iterate(int LineNum)
+        {
+            if (0 == LineNum)
+                return;
 
-			Alternative1 = Triangle [LineNum + 1] [Index];
-			Alternative2 = Triangle [LineNum + 1] [Index + 1];
+            // 0 based. It is 14 for the 15th line.
+            // Get the previous line:
+            int[] BeforeLine = Triangle [LineNum - 1];
 
-			if (Alternative1 > Alternative2) {
-				Iterate (Alternative1, LineNum + 1, Index);
-			} else {
-				Iterate (Alternative2, LineNum + 1, Index + 1);
-			}
-		}
+            int Value = 0;
+            int Alternative1 = 0, Alternative2 = 0;
+
+            for (int i = 0; i < BeforeLine.Length; i++) {
+                Value = BeforeLine [i];
+                Alternative1 = Triangle [LineNum] [i];
+                Alternative2 = Triangle [LineNum] [i + 1];
+
+                if (Alternative1 > Alternative2) {
+                    Value += Alternative1;
+                
+                } else {
+                    Value += Alternative2;
+                }
+
+                Triangle [LineNum - 1] [i] = Value;
+            }
+
+            Triangle.RemoveAt (LineNum);
+            Iterate (LineNum - 1);
+        }
 
 		static void ReadProblem()
 		{
 			string[] Values;
 			int[] Current;
 			try
-			{   // Open the text file using a stream reader.
+            {
 				using (StreamReader sr = new StreamReader("Problem018.txt"))
 				{
-
-					int counter = 0;  
-					string line;  
-
-					// Read the file and display it line by line.  
-
+                    string line;
 					while((line = sr.ReadLine()) != null)  
 					{  
 						Values = line.Split(' ');
 						Current = new int[Values.Length];
-
 						for (int i = 0; i < Values.Length; i++) {
 							Current[i] = int.Parse(Values[i]);
 						}
-
-						Triangle[counter] = Current;
-
-						System.Console.WriteLine (line);  
-						counter++;  
+                        Triangle.Add( Current);
 					}  
-
-					// Read the stream to a string, and write the string to the console.
-					Console.WriteLine(line);
 				}
 			}
 			catch (Exception e)
@@ -77,5 +78,5 @@ namespace Problem018
 				Console.WriteLine(e.Message);
 			}
 		}
-	}
+    }
 }
