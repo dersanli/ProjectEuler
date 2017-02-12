@@ -95,10 +95,7 @@ namespace Problem015
 			Path = r.Next (0, 2);
 			r = null;
 
-			if (Path == 0)
-				return ">";
-			else
-				return "v";
+			return Path == 0 ? ">" : "v";
 		}
 
 		static void PrintPaths (){
