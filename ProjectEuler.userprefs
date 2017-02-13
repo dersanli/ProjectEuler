@@ -1,8 +1,15 @@
-﻿<Properties StartupItem="Problem022/Problem022.csproj">
+﻿<Properties StartupItem="Problem023/Problem023.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
-  <MonoDevelop.Ide.Workbench />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Problem022/Program.cs">
+    <Files>
+      <File FileName="Problem023/Program.cs" Line="34" Column="4" />
+      <File FileName="Problem022/Program.cs" Line="18" Column="60" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
+    <BreakpointStore>
+      <Breakpoint file="/home/dersanli/code/ProjectEuler/Problem023/Program.cs" line="45" column="1" />
+    </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
 </Properties>
