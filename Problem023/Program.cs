@@ -1,5 +1,5 @@
 ﻿using System;
-using System.Collections;
+using System.Collections.Generic;
 
 namespace Problem023
 {
@@ -21,53 +21,73 @@ namespace Problem023
 
 	class MainClass
 	{
-		static SortedList AbundantNumbers = new SortedList();
-		const ulong Upperlimit = 20161;
+		const int Upperlimit = 28123;
+
+		static List<int> AbundantNumbers = new List<int>();
+		static bool[] AbundentSums = new bool[Upperlimit + 1];
+
+
 
 		public static void Main (string[] args)
 		{
 			DateTime Start = DateTime.Now;
 
 			PrepareAbundantNumbers ();
+			PrepareAbudentSums ();
 
 			ulong Sum = 0;
-
-			for (ulong Number = 0; Number < 100; Number++) {
-				if (!AbundantNumbers.ContainsKey (Number)) {
-					if (!AbundantNumbers.ContainsKey (Upperlimit - Number)) {
+			for (ulong Number = 1; Number < Upperlimit; Number++) {
+					if (!AbundentSums[Number]) {
 						Sum += Number;
-						Console.WriteLine ("Number: {0,6} - SumFactors:{1,6}", Number, Sum);
 					}
-				}
 			}
 
 			Console.WriteLine("Sum: {0}", Sum);
 			Console.WriteLine("Elapsed: {0}", DateTime.Now - Start);
+			//Console.Beep (5000, 1000);
+			System.Media.SystemSounds.Beep.Play();
+		}
+
+
+		static void PrepareAbudentSums()
+		{
+			int AbundantNumber1 = 0;
+			int AbundantNumber2 = 0;
+
+			for (int i = 0; i < AbundantNumbers.Count; i++) {
+				for (int j = 0; j < AbundantNumbers.Count; j++) {
+
+					AbundantNumber1 = AbundantNumbers [i];
+					AbundantNumber2 = AbundantNumbers [j];
+
+					if (AbundantNumber1 + AbundantNumber2 <= Upperlimit) {
+						AbundentSums [AbundantNumber1 + AbundantNumber2] = true;
+					}
+				}
+			}
 		}
 
 		static void PrepareAbundantNumbers()
 		{
-			ulong SumF = 0;
+			int SumF = 0;
 
-			for (ulong i = 0; i < Upperlimit; i++) {
-
+			for (int i = 0; i < Upperlimit; i++) {
 				SumF = SumFactors (i);
 
 				if (SumF > i) {
-					AbundantNumbers.Add (i, SumF);
+					AbundantNumbers.Add (i);
 					//Console.WriteLine ("Number: {0,6} - SumFactors:{1,6}", i, SumF);
 				}
 			}
 		}
 
-
-		static ulong SumFactors(ulong Number) {
+		static int SumFactors(int Number) {
 
 			//Console.Write ("Number: {0,10}: ", Number);
 
-			ulong SumFactors = 0;
-			ulong max = (ulong)Math.Sqrt (Number);
-			for (ulong factor = 1; factor <= max; ++factor) {
+			int SumFactors = 0;
+			int max = (int)Math.Sqrt (Number);
+			for (int factor = 1; factor <= max; ++factor) {
 				if (Number % factor == 0) {
 					SumFactors += factor;
 					//Console.Write ("{0} ", factor);

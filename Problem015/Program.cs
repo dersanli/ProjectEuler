@@ -20,12 +20,12 @@ namespace Problem015
 		{
 			start = DateTime.Now;
 			Console.WriteLine ("Possible Paths - {0}", Combination (40, 20));
+			Console.Beep ();
 			Console.WriteLine ("Elapsed: {0}", DateTime.Now - start);
-			return;
+		}
 
-
-			SleepTime = int.Parse(args [0]);
-
+		static void CalculatePaths()
+		{
 			NumPaths = (int)Combination ((long)GridWidth + (long)GridHeight, (long)GridHeight);
 
 			Paths = new ArrayList ();
@@ -66,13 +66,10 @@ namespace Problem015
 				{
 					Console.WriteLine("duplicate");
 				}
-					
+
 			} while (Paths.Count != NumPaths);
 
 			PrintPaths ();
-
-			Console.Beep ();
-			Console.WriteLine ("Elapsed: {0}", DateTime.Now - start);
 		}
 
 		static string SolveGrid()
