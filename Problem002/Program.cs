@@ -14,6 +14,8 @@ namespace Problem002
 	{
 		public static void Main(string[] args)
 		{
+			DateTime Start = DateTime.Now;
+
 			ulong Total = 0;
 
 			for (uint i = 0; i < 34; i++) {
@@ -27,10 +29,12 @@ namespace Problem002
 				}
 				
 			}
-			
+
+
 			Console.WriteLine("Total Even Fibonacci: {0}", Total);	
-			
-			Console.Write("Press any key to continue . . . ");
+
+			Console.WriteLine("Elapsed: {0}", DateTime.Now - Start);
+			System.Media.SystemSounds.Beep.Play();
 			Console.ReadKey(true);
 		}
 		
