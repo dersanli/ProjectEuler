@@ -16,59 +16,107 @@ namespace Problem024
 
 	class MainClass
 	{
-
-		//const int[] Digits = new int[] {0,1,2,3,4,5,6,7,8,9};
-		const uint Maximum = 100;
-
-		static List<int> UsedDigits = new List<int> ();
-		static List<int> AvailableDigits = new List<int> ();
-
 		public static void Main (string[] args)
 		{
 			DateTime Start = DateTime.Now;
-
-			AvailableDigits.AddRange ( new int[] {0,1,2,3,4,5,6,7,8,9} );
-
-//			AvailableDigits.Add (0);
-//			AvailableDigits.Add (1);
-//			AvailableDigits.Add (2);
-//			//AvailableDigits.Add (3);
-//			//AvailableDigits.Add (4);
-//			//AvailableDigits.Add (5);
-
 
 			PrintLexicographicPermutations ();
 
 			Console.WriteLine("Elapsed: {0}", DateTime.Now - Start);
 			System.Media.SystemSounds.Beep.Play();
+			Console.ReadKey();
 		}
-
-		static void PrintLexicographicPermutations(){
-
-			for (int i = 0; i < 10; i++) {
-
-				AvailableDigits.Remove (i);
-
-				List<int> AvDigits = AvailableDigits;
-
-
-
-				for (int j = 0; j < 10; j++) {
-
-					if (!UsedDigits.Contains (i)) {
-						for (int k = 0; k < 10; k++) {
-
-						}
-					}
-				}
-			}
+		
+		static void PrintLexicographicPermutations()
+		{
 			
+			var LexNumber = string.Empty;
+			var BannedDigits = new List<int>();
+			var Counter = 0;
+			
+			for (int i = 0; i < 10; i++) {
+				BannedDigits.Add(i);
+				LexNumber = i.ToString();
+				
+				for (int j = 0; j < 10; j++) {
+					if (!BannedDigits.Contains(j)) {
+						BannedDigits.Add(j);
+					
+						for (int k = 0; k < 10; k++) {
+							if (!BannedDigits.Contains(k)) {
+								BannedDigits.Add(k);
+						
+								for (int l = 0; l < 10; l++) {
+									if (!BannedDigits.Contains(l)) {
+										BannedDigits.Add(l);
+
+										for (int m = 0; m < 10; m++) {
+											if (!BannedDigits.Contains(m)) {
+												BannedDigits.Add(m);
+		
+												for (int n = 0; n < 10; n++) {
+													if (!BannedDigits.Contains(n)) {
+														BannedDigits.Add(n);
+
+														for (int p = 0; p < 10; p++) {
+															if (!BannedDigits.Contains(p)) {
+																BannedDigits.Add(p);
+													
+																for (int q = 0; q < 10; q++) {
+																	if (!BannedDigits.Contains(q)) {
+																		BannedDigits.Add(q);
+
+																		for (int r = 0; r < 10; r++) {
+																			if (!BannedDigits.Contains(r)) {
+																				BannedDigits.Add(r);
+																				
+																					for (int s = 0; s < 10; s++) {
+																						if (!BannedDigits.Contains(s)) {
+																							BannedDigits.Add(s);
+																										
+																							Counter++;
+																							if( Counter == 1000000){
+																								LexNumber = i.ToString() + j.ToString() + k.ToString() + l.ToString() + m.ToString() + n.ToString() + p.ToString() + q.ToString() + r.ToString() + s.ToString();;
+																								Console.WriteLine("{0,8}: {1}", Counter, LexNumber);
+																								return;
+																							}
+																							BannedDigits.Remove(s);
+																						}
+																					}
+																				BannedDigits.Remove(r);
+																			}
+																		}
+																		BannedDigits.Remove(q);
+																	}
+
+																}
+																BannedDigits.Remove(p);
+															}
+															
+														}
+														BannedDigits.Remove(n);
+													}
+													
+												}
+												BannedDigits.Remove(m);
+											}
+											
+										}
+										BannedDigits.Remove(l);
+									}
+																		
+								}
+								BannedDigits.Remove(k);
+							}
+							
+						}
+						BannedDigits.Remove(j);
+					}
+					
+				}
+				BannedDigits = new List<int>();
+			}
 		}
-
-
-
-
-
-
+	
 	}
 }
